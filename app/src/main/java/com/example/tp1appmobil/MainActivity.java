@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
             double weightedAverage = totalWeightedAverage / totalCoefficients;
 
-            String resultText = String.format("Weighted Average: %.2f", weightedAverage);
+            String resultText = String.format("Did you pass?1: %.2f", weightedAverage);
             if (weightedAverage >= 10) {
                 resultText += " (Pass)";
             } else {
