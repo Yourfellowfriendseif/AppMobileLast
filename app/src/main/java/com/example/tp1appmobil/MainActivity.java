@@ -32,12 +32,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize both buttons
+        // This is where the library button is configured
         binding.calculateButton.setOnClickListener(v -> calculateWeightedAverage());
-        binding.libraryButton.setOnClickListener(v -> openLibraryActivity());
-
+        binding.libraryButton.setOnClickListener(v -> openLibraryActivity()); // <-- HERE
+        startActivity(new Intent(MainActivity.this, LibraryActivity.class));
         fetchModulesData();
     }
+
 
     private void openLibraryActivity() {
         startActivity(new Intent(MainActivity.this, LibraryActivity.class));
