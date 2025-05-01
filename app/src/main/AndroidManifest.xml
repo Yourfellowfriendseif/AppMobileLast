@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tp1appmobil">
 
-    <!-- Internet permission (already present) -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tp1AppMobil">
 
-        <!-- LoginActivity (NEW LAUNCHER) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -23,16 +21,13 @@
             </intent-filter>
         </activity>
 
-        <!-- SplashActivity (Remove launcher intent-filter) -->
         <activity
             android:name=".SplashActivity"
-            android:exported="true" /> <!-- No longer the launcher -->
+            android:exported="true" />
 
-        <!-- MainActivity -->
         <activity android:name=".MainActivity" />
-
-        <!-- RegisterActivity (Add if needed) -->
         <activity android:name=".RegisterActivity" />
-    </application>
+        <activity android:name=".LibraryActivity" />
 
+    </application>
 </manifest>

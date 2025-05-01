@@ -8,5 +8,5 @@
     <string name="library_error_loading">Error loading books.</string>
     <string name="module_average_label">Module Average :</string>
     <string name="overall_average_label">Overall Average:</string>
-
+    <string name="view_library">View Library</string>
 </resources>

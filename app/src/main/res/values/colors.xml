@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#303030</color>
-    <color name="colorPrimaryVariant">#1C1C1E</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
-    <color name="colorSurface">#2C2C2E</color>
-    <color name="colorOnSurface">#E0E0E0</color>
-    <color name="colorOnSurfaceSecondary">#BDBDBD</color>
-    <color name="colorHighlight">#FFEB3B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="colorPrimary">#1C1C1E</color>
+    <color name="colorPrimaryVariant">#000000</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSurface">#2C2C2E</color>
+    <color name="colorOnSurface">#E0E0E0</color>
+    <color name="colorSecondaryText">#BDBDBD</color>
+    <color name="colorHighlight">#FFEB3B</color>
     <color name="windowBackground">#1C1C1E</color>
+    <color name="bottom_nav_item_selected">#FFFFFF</color>
+    <color name="bottom_nav_item_unselected">#BDBDBD</color>
+    <color name="bottom_nav_background">#2C2C2E</color>
+    <color name="purple_700">#FF3700B3</color>
+
 
 </resources>

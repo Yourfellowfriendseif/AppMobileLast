@@ -77,6 +77,8 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
             textViewBookStatus = itemView.findViewById(R.id.textViewBookStatus);
             // textViewBookIsbn = itemView.findViewById(R.id.textViewBookIsbn);
 
+
+
             // Set click listener if needed
             /*
             itemView.setOnClickListener(v -> {

@@ -54,9 +54,9 @@ public class LibraryActivity extends AppCompatActivity {
 
         // --- Setup RecyclerView ---
         // Create adapter with empty list initially
-        booksAdapter = new BooksAdapter(this, bookList /*, book -> { /* Handle book click */ //});
-                recyclerViewBooks.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewBooks.setAdapter(booksAdapter);
+        booksAdapter = new BooksAdapter(this, bookList);
+        recyclerViewBooks.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewBooks.setAdapter(booksAdapter); // Set the adapter
 
         // --- Load Data ---
         loadBooksFromDatabase();

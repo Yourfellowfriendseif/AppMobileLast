@@ -33,7 +33,7 @@
                 android:id="@+id/textViewOverallAverageLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/overall_average_label" android:textColor="@color/colorOnSurfaceSecondary"
+                android:text="@string/overall_average_label" android:textColor="@color/colorOnSurface"
                 android:textSize="16sp" />
 
             <TextView

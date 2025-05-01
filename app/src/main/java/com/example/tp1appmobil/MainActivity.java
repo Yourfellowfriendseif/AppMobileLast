@@ -1,5 +1,6 @@
 package com.example.tp1appmobil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,53 +26,48 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Initialize View Binding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        // Initialize RecyclerView
+
         recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // Fetch JSON data
+
+        // Initialize both buttons
+        binding.calculateButton.setOnClickListener(v -> calculateWeightedAverage());
+        binding.libraryButton.setOnClickListener(v -> openLibraryActivity());
+
         fetchModulesData();
-        // Set up the calculate button
-        binding.calculateButton.setOnClickListener(v -> {
-            double totalWeightedAverage = 0;
-            int totalCoefficients = 0;
+    }
 
-            for (Module module : moduleAdapter.getModuleList()) {
-                double moduleAverage = module.calculateModuleAverage();
-                int coefficient = module.getCoefficient();
+    private void openLibraryActivity() {
+        startActivity(new Intent(MainActivity.this, LibraryActivity.class));
+    }
 
-                totalWeightedAverage += moduleAverage * coefficient;
-                totalCoefficients += coefficient;
-            }
+    private void calculateWeightedAverage() {
+        double totalWeightedAverage = 0;
+        int totalCoefficients = 0;
 
-            double weightedAverage = totalWeightedAverage / totalCoefficients;
+        for (Module module : moduleAdapter.getModuleList()) {
+            double moduleAverage = module.calculateModuleAverage();
+            int coefficient = module.getCoefficient();
+            totalWeightedAverage += moduleAverage * coefficient;
+            totalCoefficients += coefficient;
+        }
 
-            String resultText = String.format("Did you pass?1: %.2f", weightedAverage);
-            if (weightedAverage >= 10) {
-                resultText += " (Pass)";
-            } else {
-                resultText += " (Fail)";
-            }
-
-            binding.resultTextView.setText(resultText);
-        });
+        double weightedAverage = totalWeightedAverage / totalCoefficients;
+        String resultText = String.format("Did you pass?1: %.2f", weightedAverage);
+        resultText += weightedAverage >= 10 ? " (Pass)" : " (Fail)";
+        binding.resultTextView.setText(resultText);
     }
 
     private void fetchModulesData() {
         String jsonUrl = "https://num.univ-biskra.dz/psp/formations/get_modules_json?sem=1&spec=184";
         RequestQueue queue = Volley.newRequestQueue(this);
+
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET, jsonUrl, null,
-                response -> {
-                    Log.d("JSON Response", response.toString());
-
-                    parseJsonData(response);
-                },
-                error -> {
-                    Log.e("JSON Error", error.toString());
-                }
+                response -> parseJsonData(response),
+                error -> Log.e("JSON Error", error.toString())
         );
 
         queue.add(jsonArrayRequest);
@@ -79,19 +75,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void parseJsonData(JSONArray jsonArray) {
         List<Module> moduleList = new ArrayList<>();
-
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject moduleObject = jsonArray.getJSONObject(i);
-                String name = moduleObject.getString("Nom_module");
-                int coefficient = moduleObject.getInt("Coefficient");
-
-                Log.d("Parsed Data", "Module: " + name + ", Coefficient: " + coefficient);
-
-                Module module = new Module(name, coefficient);
+                Module module = new Module(
+                        moduleObject.getString("Nom_module"),
+                        moduleObject.getInt("Coefficient")
+                );
                 moduleList.add(module);
             }
-
             moduleAdapter = new ModuleAdapter(moduleList);
             recyclerView.setAdapter(moduleAdapter);
         } catch (JSONException e) {
