@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         // This is where the library button is configured
         binding.calculateButton.setOnClickListener(v -> calculateWeightedAverage());
-        binding.libraryButton.setOnClickListener(v -> openLibraryActivity()); // <-- HERE
+        binding.libraryButton.setOnClickListener(v -> openLibraryActivity());
+        // <-- HERE
         startActivity(new Intent(MainActivity.this, LibraryActivity.class));
         fetchModulesData();
     }
