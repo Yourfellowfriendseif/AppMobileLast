@@ -38,6 +38,8 @@ android {
 dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.android.volley:volley:1.2.1")
+    implementation("com.google.android.material:material:1.12.0") // Use the latest stable version
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4") // If not already present
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -48,4 +50,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "643248874388",
+    "project_id": "appmobileluv",
+    "storage_bucket": "appmobileluv.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643248874388:android:6aa5ddf5b89e29bd8ae581",
+        "android_client_info": {
+          "package_name": "com.example.tp1appmobil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgJK_tmBK6-f5XU0tv2IpPjBZLSlQTmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

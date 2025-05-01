@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="library_title">Library</string>
+    <string name="library_empty">No books found in the library.</string>
+    <string name="library_error_loading">Error loading books.</string>
+    <string name="module_average_label">Module Average :</string>
+    <string name="overall_average_label">Overall Average:</string>
+
 </resources>
